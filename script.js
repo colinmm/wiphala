@@ -20,5 +20,17 @@ function colourRandomizer() {
     for (var i = 0; i < 6; i++ ) {
         hash += hexString[Math.round(Math.random() * 15)];
     }
-    return color;
+    canvas.fillStyle = hash;
+    canvas.fillRect(0,0,50,50 );
+    canvas.fillRect(50,50,50,50);
+    canvas.fillRect(100,100,50,50);
+    canvas.fillRect(150,150,50,50);
+    canvas.fillRect(200,200,50,50);
+    canvas.fillRect(250,250,50,50);
+    canvas.fillRect(300,300,50,50);
 }
+
+colourRandomizer();
+
+
+
