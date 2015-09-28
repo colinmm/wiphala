@@ -11,17 +11,27 @@
 //     var img = c.toDataURL("image/png");
 // }
 
+var size = 7;
+var colourPattern = [];
+
 var canvas = document.getElementById('wiphala').getContext("2d");
 
 // Generate random colour for pattern
 function colourRandomizer() {
-    var hexString = '0123456789ABCDEF'.split('');
-    var hash = '#';
-    for (var i = 0; i < 6; i++ ) {
-        hash += hexString[Math.round(Math.random() * 15)];
+    for (var count = 0; count < size; count ++) {
+        var hexString = '0123456789ABCDEF'.split('');
+        var hash = '#';
+        for (var i = 0; i < 6; i++ ) {
+            hash += hexString[Math.round(Math.random() * 15)];
+        }
+        colourPattern.push(hash);
     }
+    drawWiphala(hash);
+}
+
+function drawWiphala(hash) {
     canvas.fillStyle = hash;
-    canvas.fillRect(0,0,50,50 );
+    canvas.fillRect(0,0,50,50);
     canvas.fillRect(50,50,50,50);
     canvas.fillRect(100,100,50,50);
     canvas.fillRect(150,150,50,50);
@@ -32,5 +42,5 @@ function colourRandomizer() {
 
 colourRandomizer();
 
-
+console.log(colourPattern);
 
