@@ -12,35 +12,44 @@
 // }
 
 var size = 7;
-var colourPattern = [];
-
+var pattern = [];
 var canvas = document.getElementById('wiphala').getContext("2d");
 
-// Generate random colour for pattern
+// Generate random colour array for pattern
 function colourRandomizer() {
-    for (var count = 0; count < size; count ++) {
+    for (var count = 0; count < size; count++) {
         var hexString = '0123456789ABCDEF'.split('');
         var hash = '#';
         for (var i = 0; i < 6; i++ ) {
             hash += hexString[Math.round(Math.random() * 15)];
         }
-        colourPattern.push(hash);
+        pattern.push(hash);
     }
-    drawWiphala(hash);
+    drawWiphala(pattern);
 }
 
-function drawWiphala(hash) {
-    canvas.fillStyle = hash;
-    canvas.fillRect(0,0,50,50);
-    canvas.fillRect(50,50,50,50);
-    canvas.fillRect(100,100,50,50);
-    canvas.fillRect(150,150,50,50);
-    canvas.fillRect(200,200,50,50);
-    canvas.fillRect(250,250,50,50);
-    canvas.fillRect(300,300,50,50);
+// Loop through pattern array to draw Wiphala
+function drawWiphala(pattern) {
+    var n = 0;
+    looper(n);
+    function looper(n) {
+        for (var count = n; count < pattern.length; count++) {
+            canvas.fillStyle = pattern[count];
+            canvas.fillRect(count*50,n*50,50,50);
+            n += 1;
+            looper(n);
+        }
+    }
+    // use closure to start index at new number for each line
+    
+    // canvas.fillStyle = pattern[1];
+    // canvas.fillRect(0,0,50,50);
+    // canvas.fillRect(50,50,50,50);
+    // canvas.fillRect(100,100,50,50);
+    // canvas.fillRect(150,150,50,50);
+    // canvas.fillRect(200,200,50,50);
+    // canvas.fillRect(250,250,50,50);
+    // canvas.fillRect(300,300,50,50);
 }
 
 colourRandomizer();
-
-console.log(colourPattern);
-
