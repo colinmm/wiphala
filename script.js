@@ -22,35 +22,37 @@ function colourRandomizer() {
     drawWiphala(pattern);
 }
 
-// Loop through pattern array to draw Wiphala
+// Loop through pattern to draw wiphala
 function drawWiphala(pattern) {
     for (count = 0; count < pattern.length; count++) {
         canvas.fillStyle = pattern[count];
-        
         canvas.fillRect(count*50,0,50,50);
-        canvas.fillRect(0,count*50,50,50);
+        pattern.unshift(pattern.pop());
 
+        canvas.fillStyle = pattern[count];
         canvas.fillRect(count*50,50,50,50); 
-        canvas.fillRect(50,count*50,50,50);
-  
-        canvas.fillRect(count*50,100,50,50); 
-        canvas.fillRect(100,count*50,50,50);
+        pattern.unshift(pattern.pop());
 
+        canvas.fillStyle = pattern[count];
+        canvas.fillRect(count*50,100,50,50);
+        pattern.unshift(pattern.pop());
+
+        canvas.fillStyle = pattern[count];
         canvas.fillRect(count*50,150,50,50); 
-        canvas.fillRect(150,count*50,50,50);
+        pattern.unshift(pattern.pop());
 
+        canvas.fillStyle = pattern[count];
         canvas.fillRect(count*50,200,50,50); 
-        canvas.fillRect(200,count*50,50,50);
+        pattern.unshift(pattern.pop());
 
+        canvas.fillStyle = pattern[count];
         canvas.fillRect(count*50,250,50,50); 
-        canvas.fillRect(250,count*50,50,50);
+        pattern.unshift(pattern.pop());
 
-        canvas.fillRect(count*50,300,50,50); 
-        canvas.fillRect(300,count*50,50,50);
+        canvas.fillStyle = pattern[count];
+        canvas.fillRect(count*50,300,50,50);
+        pattern.unshift(pattern.pop());
 
-        // pattern.unshift(pattern.pop());
-        pattern.push(pattern.shift());
-        console.log(pattern);
     }
 }
 
