@@ -2,7 +2,5 @@ wiphala generator
 ===
 
 to do:
-- pattern generator
-- colour randomizer
-- export to jpeg
+- variable size/dimensions
 - customization sidebar
