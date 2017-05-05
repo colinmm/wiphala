@@ -1,6 +1,3 @@
 wiphala generator
 ===
-
-to do:
-- variable size/dimensions
-- customization sidebar
+[wikipedia.org/wiki/Wiphala](https://en.wikipedia.org/wiki/Wiphala)
